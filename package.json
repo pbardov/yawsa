@@ -1,0 +1,39 @@
+{
+  "name": "yawsa",
+  "version": "1.0.0",
+  "description": "Yet Another WS Api (YAWSA) library",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@repo.vsgsoft.com:yawsa"
+  },
+  "keywords": [
+    "WebSocket",
+    "ws",
+    "api",
+    "client",
+    "server"
+  ],
+  "author": "Pavel Bardov <pavel at vsgsoft dot com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "mocha": "^6.0.2"
+  },
+  "dependencies": {
+    "isomorphic-ws": "^4.0.1",
+    "lodash": "^4.17.11",
+    "uuid": "^3.3.2",
+    "ws": "^6.2.1"
+  }
+}
