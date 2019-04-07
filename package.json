@@ -1,6 +1,6 @@
 {
   "name": "yawsa",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Yet Another WS Api (YAWSA) library",
   "main": "index.js",
   "scripts": {

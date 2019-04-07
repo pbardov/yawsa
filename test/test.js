@@ -41,7 +41,9 @@ class Api extends events.EventEmitter {
 describe('Test yawsa client server communication', function testMain() {
   this.timeout(10000);
 
-  function apiFactory() {
+  function apiFactory(con) {
+    console.log(`\nHEADERS: ${JSON.stringify(con.headers, null, '   ')}`);
+    console.log(`\nRAW HEADERS: ${JSON.stringify(con.rawHeaders, null, '   ')}`);
     return new Api();
   }
 
@@ -52,7 +54,7 @@ describe('Test yawsa client server communication', function testMain() {
 
   let cl;
   it('Create client', () => {
-    cl = new Client({ wsParams: [`ws://localhost:${WS_PORT}/`] });
+    cl = new Client({ wsParams: [`ws://localhost:${WS_PORT}/`, 'sample-protocol-usage'] });
   });
 
   it('Wait client ready', async () => {
