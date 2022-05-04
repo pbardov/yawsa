@@ -1,23 +1,21 @@
 /* global describe, it */
 /* eslint-disable no-await-in-loop */
-const process = require('process');
-const uuid = require('uuid/v4');
-const events = require('events');
+import process from 'process';
+import { v4 as uuid } from 'uuid';
+import { EventEmitter } from 'events';
+import chai from 'chai';
+import chaiAsPromised from 'chai-as-promised';
+import assert from 'assert';
+import { Client, Server } from '../index.js';
+import delay from '../lib/delay.js';
 
 process.env.DEBUG = true;
 
-const chai = require('chai');
-const chaiAsPromised = require('chai-as-promised');
-const assert = require('assert');
-
 chai.use(chaiAsPromised);
-
-const { Client, Server } = require('../index');
-const { delay } = require('../lib/helpers');
 
 const WS_PORT = 8581;
 
-class Api extends events.EventEmitter {
+class Api extends EventEmitter {
   constructor() {
     super();
 
@@ -100,12 +98,13 @@ describe('Test yawsa client server communication', function testMain() {
 
   it('Test exception', async () => {
     let errMsg;
+    const msg = 'Error message';
     try {
-      await cl.invoke('throwException', 'Error message');
+      await cl.invoke('throwException', msg);
     } catch (err) {
       errMsg = err.message;
     }
-    assert(errMsg !== 'Error message', `Wrong answer ${errMsg}`);
+    assert.strictEqual(errMsg, msg, `Wrong answer ${errMsg}`);
   });
 
   it('Test events', async () => {

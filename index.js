@@ -1,7 +1,2 @@
-const Client = require('./lib/Client');
-const Server = require('./lib/Server');
-
-module.exports = {
-  Client,
-  Server
-};
+export { default, default as Client } from './lib/Client.js';
+export { default as Server } from './lib/Server.js';
